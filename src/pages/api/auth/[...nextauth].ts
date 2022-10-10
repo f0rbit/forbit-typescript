@@ -1,5 +1,5 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import GithubProvider from "next-auth/providers/github";
 
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
@@ -19,9 +19,22 @@ export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    GithubProvider({
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET,
+      profile(profile) {
+        return {
+          "id": profile.id.toString(),
+          "name": profile.name ?? profile.login,
+          "email": profile.email,
+          "image": profile.avatar_url,
+          "url": profile.url,
+          "html_url": profile.html_url,
+          "location": profile.location,
+          "bio": profile.bio,
+          "twitter_username": profile.twitter_username,
+        }
+      }
     }),
     // ...add more providers here
   ],

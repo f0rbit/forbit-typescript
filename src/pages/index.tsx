@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
+import { Session } from "next-auth";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 
 const Home: NextPage = () => {
+  const { data: session } = useSession();
   return (
     <>
       <Head>
@@ -14,43 +17,22 @@ const Home: NextPage = () => {
         <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
           Create <span className="text-purple-300">T3</span> App
         </h1>
-        <p className="text-2xl text-gray-700">This stack uses:</p>
-        <div className="mt-3 grid gap-3 pt-3 text-center md:grid-cols-3 lg:w-2/3">
-          <TechnologyCard
-            name="NextJS"
-            description="The React framework for production"
-            documentation="https://nextjs.org/"
-          />
-          <TechnologyCard
-            name="TypeScript"
-            description="Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale"
-            documentation="https://www.typescriptlang.org/"
-          />
-          <TechnologyCard
-            name="TailwindCSS"
-            description="Rapidly build modern websites without ever leaving your HTML"
-            documentation="https://tailwindcss.com/"
-          />
-          <TechnologyCard
-            name="tRPC"
-            description="End-to-end typesafe APIs made easy"
-            documentation="https://trpc.io/"
-          />
-          <TechnologyCard
-            name="Next-Auth"
-            description="Authentication for Next.js"
-            documentation="https://next-auth.js.org/"
-          />
-          <TechnologyCard
-            name="Prisma"
-            description="Build data-driven JavaScript & TypeScript apps in less time"
-            documentation="https://www.prisma.io/docs/"
-          />
-        </div>
+        <SignButton session={session} />
       </main>
     </>
   );
 };
+
+type SignButtonProps = {
+  session: Session | null;
+}
+const SignButton = (session: SignButtonProps) => {
+  if (!session.session) {
+    return <button onClick={() => signIn()} className="bg-gray-400 px-3 py-1 rounded-md">Sign In</button>
+  } else {
+    return <button onClick={() => signOut()} className="bg-gray-400 px-3 py-1 rounded-md">Sign Out</button>
+  }
+}
 
 export default Home;
 
