@@ -14,10 +14,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id String @id @default(cuid())
-}
-
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -66,4 +62,101 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+// User defined schema
+model BlogUser {
+    id              String       @id @default(uuid())
+    user_name       String
+    access_level    ACCESS_LEVEL @default(DEFAULT)
+    last_login_ip   String?
+    last_login_date DateTime?
+    creation_date   DateTime     @default(now())
+
+    posts Post[]
+}
+
+model Post {
+    post_id       Int         @id @default(autoincrement())
+    title         String
+    content       String      @db.Text
+    post_date     DateTime    @default(now())
+    post_status   POST_STATUS @default(DRAFT)
+    slug          String      @unique
+    metadata      Json
+    cover_picture String?     @db.Text
+
+    // relation
+    author_id String
+    author    BlogUser @relation(fields: [author_id], references: [id])
+
+    categories Category[]
+}
+
+model Category {
+    category_name   String  @id
+    parent_cateogry String?
+    slug            String
+    description     String  @db.Text
+    colour          String  @db.VarChar(7)
+
+    posts Post[]
+}
+
+model Project {
+    project_id  Int            @id @default(autoincrement())
+    name        String         @db.VarChar(30)
+    description String         @db.Text
+    repo_url    String         @db.Text
+    icon_url    String         @db.Text
+    status      PROJECT_STATUS @default(DEVELOPMENT)
+    link_url    String         @db.Text
+    link_text   String         @db.VarChar(20)
+    hidden      Boolean        @default(false)
+
+    technologies Technology[]
+}
+
+model Technology {
+    name       String     @id @db.VarChar(20)
+    icon_url   String?    @db.Text
+    tech_group TECHNOLOGY
+
+    projects Project[]
+}
+
+// User defined enums
+enum ACCESS_LEVEL {
+    DEFAULT
+    MEMBER
+    PREMIUM
+    MODERATOR
+    ADMIN
+    ALL
+}
+
+enum POST_STATUS {
+    PUBLISHED
+    DRAFT
+    HIDDEN
+}
+
+enum TECHNOLOGY {
+    LANGUAGE
+    TOOL
+    ENVIRONMENT
+    DEPLOYMENT
+    SERVICE
+    DATABASE
+    PLATFORM
+}
+
+enum PROJECT_STATUS {
+    LIVE
+    FINISHED
+    RELEASED
+    DEVELOPMENT
+    PAUSED
+    STOPPED
+    ABANDONED
 }
