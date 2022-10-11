@@ -25,16 +25,10 @@ const Home: NextPage = ({commits}: any) => {
   return (
     <>
       <PageLayout title={"Home"}>
-        <html>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet"></link>
-        </html>
         <div className="flex h-screen w-screen flex-col items-center justify-center space-y-3 bg-neutral-900">
           <h1 className="text-8xl font-bold text-white">forbit</h1>
           <div className="text-neutral-500">
-            <span>I </span>
+            {/* <span>I </span>
             <Typical
               steps={[
                 "am a developer.",
@@ -52,7 +46,7 @@ const Home: NextPage = ({commits}: any) => {
               ]}
               loop={Infinity}
               wrapper="span"
-            />
+            /> */}
           </div>
         </div>
         <div className="h-full w-full">
