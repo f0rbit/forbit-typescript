@@ -1,15 +1,16 @@
-// src/pages/api/examples.ts
 import { TECHNOLOGY } from "@prisma/client";
-import type { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../server/db/client";
+import { NextApiRequest, NextApiResponse } from "next";
+import { getTechnologies } from "api/technology";
 
-const examples = async (req: NextApiRequest, res: NextApiResponse) => {
-    const group: string | string[] | undefined = req?.query?.tech_group;
-    const where = {
-        tech_group: TECHNOLOGY[group as keyof typeof TECHNOLOGY]
-    }
-  const examples = await prisma.technology.findMany({where});
-  res.status(200).json(examples);
+export const technologies = async (
+  req: NextApiRequest,
+  res: NextApiResponse
+) => {
+  // takes in tech_group from query params
+  const group: string | string[] | undefined = req?.query?.tech_group;
+  const tech_group: TECHNOLOGY | undefined =
+    TECHNOLOGY[group as keyof typeof TECHNOLOGY];
+  res.status(200).json(await getTechnologies(tech_group));
 };
 
-export default examples;
+export default technologies;

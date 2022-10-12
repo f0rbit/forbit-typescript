@@ -44,42 +44,42 @@ const tech_icons = {
 const post_categories: Category[] = [
   { // development parent category
     category_name: "Development",
-    parent_cateogry: null,
+    parent_slug: null,
     slug: "development",
     description: "All development/programming related posts",
     colour: "#145876"
   },
   { // web dev
     category_name: "Web Dev",
-    parent_cateogry: "Development",
+    parent_slug: "development",
     slug: "webdev",
     description: "Posts related to my web development journey and experiences",
     colour: "#147516",
   }, 
   { // game development
     category_name: "Game Dev",
-    parent_cateogry: "Development",
+    parent_slug: "development",
     slug: "gamedev",
     description: "Posts related to my game development journey and experiences",
     colour: "#157781"
   },
   { // hobby parent category
     category_name: "Hobbies",
-    parent_cateogry: null,
+    parent_slug: null,
     slug: "hobbies",
     description: "Posts relating to my hobbies (not programming related)",
     colour: "#156671"
   },
   {
     category_name: "Photography",
-    parent_cateogry: "Hobbies",
+    parent_slug: "hobbies",
     slug: "photography",
     description: "Posts showcasing my amazing photography skills",
     colour: "#147566"
   },
   {
     category_name: "Fitness",
-    parent_cateogry: "Hobbies",
+    parent_slug: "hobbies",
     slug: "fitness",
     description: "Posts describing my physical activies (fitness & sport)",
     colour: "#175656"
@@ -121,7 +121,7 @@ async function main() {
     for (const cat of post_categories) {
       await prisma.category.upsert({
         where: {
-          category_name: cat.category_name
+          slug: cat.slug
         },
         update: cat,
         create: cat
@@ -154,7 +154,7 @@ async function main() {
         author_id: f0rbit.id,
         categories: {
           connect: {
-            category_name: "Hobbies"
+            slug: "hobbies"
           }
         }
       }

@@ -94,11 +94,11 @@ model Post {
 }
 
 model Category {
-    category_name   String  @id
-    parent_cateogry String?
-    slug            String
-    description     String  @db.Text
-    colour          String  @db.VarChar(7)
+    slug          String  @id
+    parent_slug   String?
+    category_name String
+    description   String  @db.Text
+    colour        String  @db.VarChar(7)
 
     posts Post[]
 }
