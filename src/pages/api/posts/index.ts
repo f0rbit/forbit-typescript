@@ -1,22 +1,14 @@
-// src/pages/api/examples.ts
+import { getAllPosts, getPosts } from "api/posts";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../../server/db/client";
 
-const examples = async (req: NextApiRequest, res: NextApiResponse) => {
-  const examples = await prisma.post.findMany({include: {
-    categories: {
-      select: {
-        slug: true
-      }
-    },
-    author: {
-      select: {
-        id: true,
-        user_name: true
-      }
-    },
-  }});
-  res.status(200).json(examples);
+const posts = async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req['query']['category']) {
+    const category_group: any = req['query']['category'];
+    res.status(200).json(await getPosts(category_group));
+  } else {
+    res.status(200).json(await getAllPosts());
+  }
 };
 
-export default examples;
+export default posts;
+

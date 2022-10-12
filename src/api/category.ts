@@ -5,7 +5,7 @@ export const getCategories = async () => {
   return await prisma.category.findMany();
 };
 
-export const getChildrenCategories = async (parent_slug: string, include_parent: boolean) => {
+export const getChildrenCategories = async (parent_slug: string | undefined, include_parent: boolean) => {
     const data = await prisma.category.findMany();
     const children_names: string[] = [];
     const children_objects: Category[] = [];
