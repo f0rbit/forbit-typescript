@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { PageLayout } from "../components/PageLayout";
 import NavBar from "../components/NavBar";
-import Typical from "react-typical";
 import Description from "../components/About/Description";
 import RecentCommits from "../components/RecentCommits";
+import { TypeAnimation } from "react-type-animation";
 
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
@@ -28,9 +28,9 @@ const Home: NextPage = ({commits}: any) => {
         <div className="flex h-screen w-screen flex-col items-center justify-center space-y-3 bg-neutral-900">
           <h1 className="text-8xl font-bold text-white">forbit</h1>
           <div className="text-neutral-500">
-            {/* <span>I </span>
-            <Typical
-              steps={[
+            <span>I </span>
+            <TypeAnimation
+              sequence={[
                 "am a developer.",
                 1000,
                 "am a game designer.",
@@ -44,9 +44,10 @@ const Home: NextPage = ({commits}: any) => {
                 "am a gamer.",
                 1000,
               ]}
-              loop={Infinity}
+              repeat={Infinity}
               wrapper="span"
-            /> */}
+              cursor={true}
+            />
           </div>
         </div>
         <div className="h-full w-full">
