@@ -28,6 +28,9 @@ export const serverSchema = z.object({
 export const clientSchema = z.object({
   // NEXT_PUBLIC_BAR: z.string(),
   NEXT_PUBLIC_POST_DB: z.string(),
+  NEXT_PUBLIC_EMAIL_USER_ID: z.string(),
+  NEXT_PUBLIC_EMAIL_SERVICE_ID: z.string(),
+  NEXT_PUBLIC_EMAIL_TEMPLATE_ID: z.string()
 });
 
 /**
@@ -38,4 +41,7 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   NEXT_PUBLIC_POST_DB: process.env.NEXT_PUBLIC_POST_DB,
+  NEXT_PUBLIC_EMAIL_SERVICE_ID: process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+  NEXT_PUBLIC_EMAIL_TEMPLATE_ID: process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
+  NEXT_PUBLIC_EMAIL_USER_ID: process.env.NEXT_PUBLIC_EMAIL_USER_ID
 };
