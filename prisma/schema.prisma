@@ -104,14 +104,14 @@ model Category {
 }
 
 model Project {
-    project_id  Int            @id @default(autoincrement())
+    project_id  String         @id
     name        String         @db.VarChar(30)
     description String         @db.Text
-    repo_url    String         @db.Text
-    icon_url    String         @db.Text
+    repo_url    String?         @db.Text
+    icon_url    String?         @db.Text
     status      PROJECT_STATUS @default(DEVELOPMENT)
-    link_url    String         @db.Text
-    link_text   String         @db.VarChar(20)
+    link_url    String?         @db.Text
+    link_text   String?         @db.VarChar(20)
     hidden      Boolean        @default(false)
 
     technologies Technology[]

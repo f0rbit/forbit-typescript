@@ -1,6 +1,7 @@
 import CommitTimelineItem from "components/timeline/CommitTimelineItem";
 import RedditTimelineItem from "components/timeline/RedditTimelineItem";
 import TwitterTimelineItem from "components/timeline/TwitterTimelineItem";
+
 export function getDate(date: string) {
   const d = new Date(date);
   return <p>{d.toLocaleString("en-AU", {})}</p>;
