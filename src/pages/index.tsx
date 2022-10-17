@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { PageLayout } from "../components/PageLayout";
+import { PageContainer } from "../components/PageContainer";
 import NavBar from "../components/NavBar";
 import Description from "../components/About/Description";
 import RecentCommits from "../components/RecentCommits";
@@ -21,39 +21,38 @@ export async function getStaticProps() {
   };
 }
 
-const Home: NextPage = ({commits}: any) => {
+const Home: NextPage = ({ commits }: any) => {
   return (
-    <>
-      <PageLayout title={"Home"}>
-        <div className="flex h-screen w-screen flex-col items-center justify-center space-y-3 bg-neutral-900">
-          <h1 className="text-8xl font-bold text-white">forbit</h1>
-          <div className="text-neutral-500">
-            <span>I </span>
-            <TypeAnimation
-              sequence={[
-                "am a developer.",
-                1000,
-                "am a game designer.",
-                1000,
-                "am an open source contributor.",
-                1000,
-                "study computer science.",
-                1000,
-                "am an artist",
-                1000,
-                "am a gamer.",
-                1000,
-              ]}
-              repeat={Infinity}
-              wrapper="span"
-              cursor={true}
-            />
-          </div>
+    <PageContainer title={"Home"}>
+      <div className="flex h-screen w-screen flex-col items-center justify-center space-y-3 bg-neutral-900">
+        <h1 className="text-8xl font-bold text-white">forbit</h1>
+        <div className="text-neutral-500">
+          <span>I </span>
+          <TypeAnimation
+            sequence={[
+              "am a developer.",
+              1000,
+              "am a game designer.",
+              1000,
+              "am an open source contributor.",
+              1000,
+              "study computer science.",
+              1000,
+              "am an artist",
+              1000,
+              "am a gamer.",
+              1000,
+            ]}
+            repeat={Infinity}
+            wrapper="span"
+            cursor={true}
+          />
         </div>
-        <div className="h-full w-full">
-          <NavBar noicon={true} />
-        </div>
-        <div className="h-full w-screen bg-neutral-800">
+      </div>
+      <div className="h-full w-full">
+        <NavBar noicon={true} />
+      </div>
+      <div className="h-full w-screen bg-neutral-800">
         <div className="flex flex-wrap gap-0 space-y-6 p-3 lg:flex-nowrap lg:gap-6">
           <div className="flex w-full items-center justify-center lg:justify-end">
             <div className="shadow-md">
@@ -67,8 +66,7 @@ const Home: NextPage = ({commits}: any) => {
           </div>
         </div>
       </div>
-      </PageLayout>
-    </>
+    </PageContainer>
   );
 };
 

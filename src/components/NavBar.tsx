@@ -13,7 +13,7 @@ function NavLink(name: string, large: boolean, dest: string) {
           className={
             "block rounded-md px-3 py-2 " +
             (large ? "text-base" : "text-sm") +
-            " border-2 border-neutral-900 font-medium text-white hover:border-neutral-700 hover:bg-neutral-800 hover:text-white hover:shadow-md"
+            " border-2 border-neutral-900 font-semibold text-white hover:border-neutral-700 hover:bg-neutral-800 hover:text-white hover:shadow-md"
           }
           href={dest}
         >
@@ -45,7 +45,7 @@ function NavBar({ noicon }: NavProps) {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  {links.map((l) => NavLink(l.title, false, l.dest))}
+                  {links.map((l: any) => NavLink(l.title, false, l.dest))}
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ function NavBar({ noicon }: NavProps) {
           {() => (
             <div className="md:hidden" id="mobile-menu">
               <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                {links.map((l) => NavLink(l.title, true, l.dest))}
+                {links.map((l: any) => NavLink(l.title, true, l.dest))}
               </div>
             </div>
           )}

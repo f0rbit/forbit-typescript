@@ -9,8 +9,9 @@ import gm_server from "public/assets/project_icons/gm_server.png";
 import dungeon_generator from "public/assets/project_icons/dungeon_generator.png";
 import arena_icon from "public/assets/project_icons/arena_icon.png";
 import { ProjectWithTechnologies } from "api/projects";
-import Icon from "components/Icons"
+import Icon from "components/Icons";
 import { TECHNOLOGY } from "@prisma/client";
+import Link from "next/link";
 
 function getIcon(project: ProjectWithTechnologies) {
   switch (project["icon_url"]) {
@@ -75,7 +76,10 @@ function getLink(project: ProjectWithTechnologies) {
   }
 
   return _link ? (
-    <a className="font-semibold text-sky-500 hover:text-sky-600" href={_link}>
+    <a
+      className="relative top-[2px] font-semibold text-sky-500 hover:text-sky-600"
+      href={_link}
+    >
       {_text}
     </a>
   ) : null;
@@ -95,29 +99,34 @@ function getLinkObject(project: ProjectWithTechnologies) {
 }
 
 function renderLanguages(project: ProjectWithTechnologies) {
-  return project.technologies.filter((tech) => tech.tech_group == TECHNOLOGY.LANGUAGE).map((tech) => <Icon technology={tech} key={project.name + "_" + tech.name}/>)
+  return project.technologies
+    .filter((tech) => tech.tech_group == TECHNOLOGY.LANGUAGE)
+    .map((tech) => (
+      <Icon technology={tech} key={project.name + "_" + tech.name} />
+    ));
 }
 
-type ProjectCardType = {
-  project: ProjectWithTechnologies
-}
-export default function ProjectCard({ project }: ProjectCardType) {
+export default function ProjectCard({ project }: { project: ProjectWithTechnologies }) {
   return (
     <div className="w-96 rounded-md border-2 border-neutral-700 bg-neutral-800 py-5 px-5 shadow-md">
       <div className="text-white">
         <div className="min-w-min rounded-2xl border-2 border-neutral-600 bg-neutral-700 px-5 py-2 shadow-xl">
-          <span className="align-center flex h-12 items-center justify-center gap-2">
-            {getIcon(project) ? (
-              <div style={{ imageRendering: "pixelated" }}>
-                {getIcon(project)}
-              </div>
-            ) : (
-              <></>
-            )}
-            <h1 className="text-center text-2xl font-semibold">
-              {project['name']}
-            </h1>
-          </span>
+          <Link href={"projects/" + project.project_id}>
+            <a>
+              <span className="align-center flex h-12 items-center justify-center gap-2">
+                {getIcon(project) ? (
+                  <div style={{ imageRendering: "pixelated" }}>
+                    {getIcon(project)}
+                  </div>
+                ) : (
+                  <></>
+                )}
+                <h1 className="text-center text-2xl font-bold hover:text-sky-600">
+                  {project["name"]}
+                </h1>
+              </span>
+            </a>
+          </Link>
         </div>
         <br />
         <p className="text-md p-2 text-center font-sans font-light text-neutral-300">

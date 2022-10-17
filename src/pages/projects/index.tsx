@@ -1,6 +1,7 @@
 import ProjectCard from "components/ProjectCard";
 import NavBar from "../../components/NavBar";
 import Head from "next/head";
+import Link from "next/link";
 import { getProjects, ProjectWithTechnologies } from "api/projects";
 
 export async function getStaticProps() {
@@ -9,24 +10,21 @@ export async function getStaticProps() {
     props: {
       projects,
     },
-    revalidate: 5000
-  }
+    revalidate: 5000,
+  };
 }
 
 function renderProjects(projects: ProjectWithTechnologies[]) {
   const objects = [];
   for (const project of projects) {
-    objects.push(<ProjectCard 
-      project={project}
-      key={project.name}
-      />)
+    objects.push(<ProjectCard project={project} key={project.project_id} />);
   }
   return objects;
 }
 
 type ProjectType = {
-  projects: ProjectWithTechnologies[],
-}
+  projects: ProjectWithTechnologies[];
+};
 export default function projects({ projects }: ProjectType) {
   return (
     <div className="h-full min-h-screen  bg-neutral-800">

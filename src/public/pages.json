@@ -8,10 +8,6 @@
         "dest": "/projects"
     },
     {
-      "title": "Blog",
-      "dest": "/blog"
-    },
-    {
       "title": "Timeline",
       "dest": "/timeline"
     },
