@@ -13,9 +13,9 @@ export default function about(): ReactElement {
         </p>
         <br />
         <div className="space-y-0 rounded-md border-2 border-neutral-600 bg-neutral-700 p-2">
+          <p>💻 Junior Software Enginner</p>
           <p>🎓 University of Adelaide</p>
           <p>🏸 Badminton Coach</p>
-          <p>🍔 Crew Trainer @ McDonald&apos;s</p>
           <span>
             <span>🐟 Avid </span>
             <a
