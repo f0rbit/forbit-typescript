@@ -27,10 +27,13 @@ type ProjectType = {
 };
 export default function projects({ projects }: ProjectType) {
   return (
-    <div className="h-full min-h-screen  bg-neutral-800">
+    <div className="h-max min-h-screen bg-neutral-800 w-screen min-w-max">
       <Head>
         <title>forbit.dev | Projects</title>
       </Head>
+        <div className="fixed w-full z-10">
+        <NavBar noicon={false} />
+      </div>
       <div className="h-16" />
       <h1 className="py-4 text-center text-4xl font-bold text-white">
         Projects
@@ -49,9 +52,7 @@ export default function projects({ projects }: ProjectType) {
           </div>
         </div>
       )}
-      <div className="absolute top-0 z-10 w-full">
-        <NavBar noicon={false} />
-      </div>
+      
     </div>
   );
 }
