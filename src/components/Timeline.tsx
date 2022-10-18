@@ -1,6 +1,6 @@
-import CommitTimelineItem from "components/timeline/CommitTimelineItem";
-import RedditTimelineItem from "components/timeline/RedditTimelineItem";
-import TwitterTimelineItem from "components/timeline/TwitterTimelineItem";
+import CommitTimelineItem from "src/components/timeline/CommitTimelineItem";
+import RedditTimelineItem from "src/components/timeline/RedditTimelineItem";
+import TwitterTimelineItem from "src/components/timeline/TwitterTimelineItem";
 
 export function getDate(date: string) {
   const d = new Date(date);

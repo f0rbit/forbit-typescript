@@ -3,7 +3,7 @@
 // increases width to full on mobile,]
 
 import { ReactNode } from "react";
-import NavBar from "components/NavBar";
+import NavBar from "src/components/NavBar";
 
 export const PageLayout = ({ children }: { children: ReactNode }) => {
   return (

@@ -1,9 +1,9 @@
 import { PROJECT_STATUS } from "@prisma/client";
-import { AbandonedIcon } from "public/icons/status_icons/abandoned";
-import { DevelopmentIcon } from "public/icons/status_icons/development";
-import { LiveIcon } from "public/icons/status_icons/live";
-import { ReleasedIcon } from "public/icons/status_icons/released";
-import { StoppedIcon } from "public/icons/status_icons/stopped";
+import { AbandonedIcon } from "src/assets/icons/status_icons/abandoned";
+import { DevelopmentIcon } from "src/assets/icons/status_icons/development";
+import { LiveIcon } from "src/assets/icons/status_icons/live";
+import { ReleasedIcon } from "src/assets/icons/status_icons/released";
+import { StoppedIcon } from "src/assets/icons/status_icons/stopped";
 import { ReactNode } from "react";
 
 const getIconData = (status: PROJECT_STATUS): { colour: string, icon: ReactNode | null} => {

@@ -1,8 +1,7 @@
-import ProjectCard from "components/ProjectCard";
-import NavBar from "../../components/NavBar";
+import ProjectCard from "src/components/ProjectCard";
+import NavBar from "src/components/NavBar";
 import Head from "next/head";
-import Link from "next/link";
-import { getProjects, ProjectWithTechnologies } from "api/projects";
+import { getProjects, ProjectWithTechnologies } from "src/api/projects";
 
 export async function getStaticProps() {
   const projects = await getProjects(true);

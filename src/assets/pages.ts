@@ -1,4 +1,4 @@
-[
+const links = [
     {
       "title": "Home",
       "dest": "/"
@@ -19,4 +19,6 @@
       "title": "Contact",
       "dest": "/contact"
     }
-  ]
+  ];
+
+  export default links;

@@ -1,4 +1,4 @@
-import { getAllPosts, getPosts } from "api/posts";
+import { getAllPosts, getPosts } from "src/api/posts";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const posts = async (req: NextApiRequest, res: NextApiResponse) => {

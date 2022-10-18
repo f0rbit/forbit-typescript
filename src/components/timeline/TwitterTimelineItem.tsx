@@ -1,6 +1,6 @@
-import { getDate } from "components/Timeline";
+import { getDate } from "src/components/Timeline";
 import { commentIcon } from "./RedditTimelineItem";
-import TweetText from "components/TweetText";
+import TweetText from "src/components/TweetText";
 import tweetParser from "tweet-parser";
 
 export function retweetIcon() {

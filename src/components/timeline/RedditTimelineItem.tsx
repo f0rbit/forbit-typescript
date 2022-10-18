@@ -1,4 +1,4 @@
-import { getDate } from "components/Timeline";
+import { getDate } from "src/components/Timeline";
 export function upvoteIcon() {
   return (
     <svg

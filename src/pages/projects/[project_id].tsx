@@ -1,12 +1,11 @@
-import { Project, TECHNOLOGY, Technology } from "@prisma/client";
-import { getProject, getProjects, ProjectWithTechnologies } from "api/projects";
-import { PageContainer } from "components/PageContainer";
-import { PageLayout } from "components/PageLayout";
-import { getImages } from "components/ProjectImage";
-import Status from "components/Status";
-import { ReactElement, ReactNode, useEffect, useState } from "react";
+import { TECHNOLOGY, Technology } from "@prisma/client";
+import { getProject, getProjects, ProjectWithTechnologies } from "src/api/projects";
+import { PageContainer } from "src/components/PageContainer";
+import { PageLayout } from "src/components/PageLayout";
+import { getImages } from "src/components/ProjectImage";
+import Status from "src/components/Status";
+import { ReactNode, } from "react";
 import Link from "next/link";
-import technologies from "pages/api/technologies";
 
 type PageProps = {
   params: {

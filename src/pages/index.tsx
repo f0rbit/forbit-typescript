@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { PageContainer } from "../components/PageContainer";
-import NavBar from "../components/NavBar";
-import Description from "../components/About/Description";
-import RecentCommits from "../components/RecentCommits";
+import { PageContainer } from "src/components/PageContainer";
+import NavBar from "src/components/NavBar";
+import Description from "src/components/About/Description";
+import RecentCommits from "src/components/RecentCommits";
 import { TypeAnimation } from "react-type-animation";
 
 export async function getStaticProps() {

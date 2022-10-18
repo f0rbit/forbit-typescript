@@ -1,6 +1,6 @@
 import { TECHNOLOGY } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-import { getTechnologies } from "api/technology";
+import { getTechnologies } from "src/api/technology";
 
 export const technologies = async (
   req: NextApiRequest,

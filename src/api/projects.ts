@@ -1,5 +1,5 @@
 import { Prisma, Project, Technology } from "@prisma/client";
-import { prisma } from "server/db/client";
+import { prisma } from "src/server/db/client";
 
 const project_include: Prisma.ProjectInclude = {
     technologies: true

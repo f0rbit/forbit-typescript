@@ -1,6 +1,6 @@
 // src/pages/api/examples.ts
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getChildrenCategories } from "api/category";
+import { getChildrenCategories } from "src/api/category";
 
 const examples = async (req: NextApiRequest, res: NextApiResponse) => {
     const { category_name, include_parent }: any = req.query;

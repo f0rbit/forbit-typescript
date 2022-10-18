@@ -15,9 +15,8 @@
     "jsx": "preserve",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
-    "baseUrl": "src"
-
+    "baseUrl": ""
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "prisma/seed.js", "src"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "prisma/seed.js", "src", "public"],
   "exclude": ["node_modules"]
 }

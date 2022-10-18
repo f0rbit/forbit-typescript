@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import logo from "../public/icon.png";
+import logo from "public/icon.png";
 import Link from "next/link";
-import links from "../public/pages.json";
+import links from "src/assets/pages";
 
 
 function NavLink(name: string, large: boolean, dest: string) {

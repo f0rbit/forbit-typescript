@@ -8,7 +8,7 @@ import {
   PythonIcon,
   ReactIcon,
   TypeScriptIcon,
-} from "public/icons/language_icons";
+} from "src/assets/icons/language_icons";
 import { Technology } from "@prisma/client";
 
 const getIcon = (tech: Technology) => {

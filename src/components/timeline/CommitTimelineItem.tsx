@@ -1,4 +1,4 @@
-import { getDate } from "components/Timeline";
+import { getDate } from "src/components/Timeline";
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 

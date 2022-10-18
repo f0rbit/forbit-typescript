@@ -1,4 +1,4 @@
-import Status from "components/Status";
+import Status from "src/components/Status";
 import Image from "next/image";
 
 import dark_dungeon from "public/assets/project_icons/dark_dungeon.png";
@@ -8,8 +8,8 @@ import forbit_dev from "public/assets/project_icons/forbit_dev.png";
 import gm_server from "public/assets/project_icons/gm_server.png";
 import dungeon_generator from "public/assets/project_icons/dungeon_generator.png";
 import arena_icon from "public/assets/project_icons/arena_icon.png";
-import { ProjectWithTechnologies } from "api/projects";
-import Icon from "components/Icons";
+import { ProjectWithTechnologies } from "src/api/projects";
+import Icon from "src/components/Icons";
 import { TECHNOLOGY } from "@prisma/client";
 import Link from "next/link";
 
