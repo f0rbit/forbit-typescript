@@ -108,7 +108,7 @@ function renderLanguages(project: ProjectWithTechnologies) {
 
 export default function ProjectCard({ project }: { project: ProjectWithTechnologies }) {
   return (
-    <div className="w-96 rounded-md border-2 border-neutral-700 bg-neutral-800 py-5 px-5 shadow-md">
+    <div className="rounded-md border-2 border-neutral-700 bg-neutral-800 py-5 px-5 shadow-md">
       <div className="text-white">
         <div className="min-w-min rounded-2xl border-2 border-neutral-600 bg-neutral-700 px-5 py-2 shadow-xl">
           <Link href={"projects/" + project.project_id}>
@@ -135,7 +135,7 @@ export default function ProjectCard({ project }: { project: ProjectWithTechnolog
         <br />
         <br />
 
-        <div className="flex h-12 flex-row flex-wrap items-center justify-center gap-4">
+        <div className="flex  flex-row flex-wrap items-center justify-center gap-4">
           <div className="h-full w-min rounded-md border-2 border-neutral-600 bg-neutral-700 px-3 py-2 shadow-md">
             <Status status={project["status"]} />
           </div>
