@@ -1,5 +1,5 @@
 // src/pages/api/examples.ts
-import { getProjects } from "api/projects";
+import { getProjects } from "src/api/projects";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const projects = async (req: NextApiRequest, res: NextApiResponse) => {

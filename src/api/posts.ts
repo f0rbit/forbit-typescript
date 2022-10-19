@@ -1,5 +1,5 @@
-import { prisma } from "server/db/client";
-import { getChildrenCategories } from "api/category";
+import { prisma } from "src/server/db/client";
+import { getChildrenCategories } from "src/api/category";
 
 export const getPosts = async (category_group: string) => {
   const categories = getChildrenCategories(category_group, true);
