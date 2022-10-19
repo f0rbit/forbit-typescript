@@ -1,6 +1,8 @@
 import NavBar from "src/components/NavBar";
 import Timeline from "src/components/Timeline";
 import Head from "next/head";
+import { PageContainer } from "src/components/PageContainer";
+import { PageLayout } from "src/components/PageLayout";
 
 function getCommit(commits: any) {
   const reversecommits = [];
@@ -75,27 +77,23 @@ function title(word: string) {
 }
 
 type TimelineProps = {
-  timeline: any
-}
+  timeline: any;
+};
 export default function TimelinePage({ timeline }: TimelineProps) {
   return (
-    <div className="relative top-0 h-screen w-screen overflow-x-hidden scroll-smooth bg-neutral-800">
-      <Head>
-        <title>forbit.dev | Timeline</title>
-      </Head>
-      <div className="absolute top-0 z-10 h-min w-full">
-        <NavBar noicon={false}/>
-      </div>
-      <div className="mt-14 flex flex-row flex-nowrap justify-center py-4 px-4">
-        <div className="w-[48rem]">
-          <div className="flex flex-col flex-nowrap items-center justify-center">
-            <div>{title("Timeline")}</div>
-            <div>
-              <Timeline timeline={timeline} />
+    <PageContainer title={"Timeline"}>
+      <PageLayout>
+        <div className="flex flex-row flex-nowrap justify-center py-4 px-4">
+          <div className="w-[48rem]">
+            <div className="flex flex-col flex-nowrap items-center justify-center">
+              <div>{title("Timeline")}</div>
+              <div>
+                <Timeline timeline={timeline} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </PageLayout>
+    </PageContainer>
   );
 }
