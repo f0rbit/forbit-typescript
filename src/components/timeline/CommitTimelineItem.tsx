@@ -117,7 +117,7 @@ export default function CommitTimelineItem({ commits }: CommitTimelineType) {
 
             <button
               onClick={() => setOpen(!open)}
-              className="flex w-5 text-neutral-500 hover:text-neutral-200"
+              className="flex w-[20px] text-neutral-500 hover:text-neutral-200"
             >
               {getIcon(open)}
             </button>
