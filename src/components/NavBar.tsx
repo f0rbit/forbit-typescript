@@ -3,7 +3,7 @@ import { Transition } from "@headlessui/react";
 import logo from "public/icon.png";
 import Link from "next/link";
 import links from "src/assets/pages";
-
+import Image from "next/image";
 
 function NavLink(name: string, large: boolean, dest: string) {
   return (
@@ -24,14 +24,14 @@ function NavLink(name: string, large: boolean, dest: string) {
   );
 }
 type NavProps = {
-  noicon: boolean
-}
+  noicon: boolean;
+};
 
 function NavBar({ noicon }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <nav className="w-full bg-neutral-900">
+      <nav className="w-screen bg-neutral-900">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex w-full items-center justify-center">
@@ -40,7 +40,9 @@ function NavBar({ noicon }: NavProps) {
                 {noicon ? (
                   <></>
                 ) : (
-                  <img className="ml-10 h-8 w-8" src={logo.src} alt="icon" />
+                  <div className="w-9 flex justify-center align-middle">
+                    <Image src={logo} width={64} height={64} alt="icon" />
+                  </div>
                 )}
               </div>
               <div className="hidden md:block">
